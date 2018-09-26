@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qdtx.redis.mapper.UserMapper">
+
+	<!-- 插入一条用户记录 -->
+	<insert id="saveUser" parameterType="com.qdtx.redis.bean.User">
+		insert into user (name, sex, age)
+		values ( #{name}, #{sex}, #{age} )
+	</insert>
+
+	<!-- 返回该所有用户列表 -->
+	<select id="getAllUser" resultType="com.qdtx.redis.bean.User">
+		select u.id, u.name, u.sex,
+		u.age from user u
+	</select>
+
+	<!-- 根据 id 查找用户信息 -->
+	<select id="getUserById" resultType="com.qdtx.redis.bean.User"
+		parameterType="java.lang.Integer">
+		select u.id, u.name, u.sex, u.age from user u where u.id = #{id}
+	</select>
+
+	<!-- 重命名用户 -->
+	<update id="renameUser" parameterType="com.qdtx.redis.bean.User">
+		update user set name = #{name} where id = #{id}
+	</update>
+
+	<!-- 删除一个用户记录 -->
+	<delete id="deleteUserById" parameterType="java.lang.Integer">
+		delete from user where id = #{id}
+	</delete>
+</mapper>

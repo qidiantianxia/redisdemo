@@ -1,0 +1,5 @@
+com\qdtx\redis\mapper\CityMapper.class
+com\qdtx\redis\bean\City.class
+com\qdtx\redis\cache\RedisCacheConfig.class
+com\qdtx\redis\controller\CityController.class
+com\qdtx\redis\service\CityService.class
